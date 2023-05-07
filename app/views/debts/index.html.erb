@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Debts</h1>
+
+<div id="debts">
+  <% @debts.each do |debt| %>
+    <%= render debt %>
+    <p>
+      <%= link_to "Show this debt", debt %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New debt", new_debt_path %>

@@ -3,6 +3,8 @@
   <head>
     <title>CBill</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { corePlugins: { preflight: false } }</script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,7 +14,7 @@
 
   <body>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <alert class="notice"><%= notice %></alert>
+    <alert class="alert"><%= alert %></alert>
   </body>
 </html>
