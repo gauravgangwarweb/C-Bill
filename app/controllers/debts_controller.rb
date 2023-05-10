@@ -1,5 +1,5 @@
 class DebtsController < ApplicationController
-  before_action :set_debt, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /debts/new
   def new

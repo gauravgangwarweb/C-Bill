@@ -1,6 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_customer, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /customers or /customers.json
   def index
