@@ -27,5 +27,5 @@ test:
 
 production:
   <<: *default
-  database: psql 'postgresql://sahajgangwar@ep-billowing-feather-253838-pooler.us-east-2.aws.neon.tech/neondb'
+  url: <%= ENV['DATABASE_URL'] %>
   
