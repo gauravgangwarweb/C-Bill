@@ -1,14 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<div class="w-[100%] h-[60px] bg-[#00E7FF] flex justify-between items-center text-white">
+<div></div>
+  <h2 class="m-0 tracking-wide text-2xl">CUSTOMERS</h2>
+  <%= button_to destroy_user_session_path, method: :delete, class:"login-button" do %>
+    <i class="fa-solid fa-right-from-bracket fa-2x" style="color: #ffffff;"></i>
+    <% end %>
+</div>
 
-<h1>Customers</h1>
-
-<div id="customers">
+<div class="px-1">
+<% if @customers.empty? %>
+  <p>No customers available.</p>
+<% else %>
   <% @customers.each do |customer| %>
     <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
+    
+  <% end %>
   <% end %>
 </div>
 
-<%= link_to "New customer", new_customer_path %>
+<p style="color: green"><%= notice %></p>
+<div class="absolute bottom-0 bg-[#00e7ff] w-full">
+<%= link_to "New customer", new_customer_path, class: "bg-[#00e8ff] mt-4 text-white font-bold py-2 rounded flex justify-center px-20" %>
+</div>

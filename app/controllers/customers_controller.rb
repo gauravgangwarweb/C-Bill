@@ -9,6 +9,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/1 or /customers/1.json
   def show
+    @customer = Customer.find(params[:id])
+    @debts = @customer.debts.order('created_at DESC')
   end
 
   # GET /customers/new

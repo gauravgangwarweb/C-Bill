@@ -27,5 +27,5 @@ test:
 
 production:
   <<: *default
-  database: C_Bill_production
+  database: psql 'postgresql://sahajgangwar@ep-billowing-feather-253838-pooler.us-east-2.aws.neon.tech/neondb'
   

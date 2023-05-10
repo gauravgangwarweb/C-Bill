@@ -4,7 +4,9 @@ class DebtsController < ApplicationController
   # GET /debts/new
   def new
     @debt = Debt.new
-    @customer = Customer.find(params[:customer_id])
+    return unless params[:c]
+
+    @customer = Customer.find(params[:c])
   end
 
   # GET /debts/1/edit
@@ -13,14 +15,12 @@ class DebtsController < ApplicationController
 
   # POST /debts or /debts.json
   def create
-    @customer = Customer.find(params[:customer_id])
     @debt = Debt.new(debt_params)
     @debt.user = current_user
-    @debt.customer = @customer
-
+    
     respond_to do |format|
       if @debt.save
-        format.html { redirect_to debt_url(@debt), notice: "Debt was successfully created." }
+        format.html { redirect_to customer_url(params[:debt][:customer_id]), notice: "Debt was successfully created." }
         format.json { render :show, status: :created, location: @debt }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -33,7 +33,7 @@ class DebtsController < ApplicationController
   def update
     respond_to do |format|
       if @debt.update(debt_params)
-        format.html { redirect_to debt_url(@debt), notice: "Debt was successfully updated." }
+        format.html { redirect_to customer_url(params[:debt][:customer_id]), notice: "Debt was successfully updated." }
         format.json { render :show, status: :ok, location: @debt }
       else
         format.html { render :edit, status: :unprocessable_entity }

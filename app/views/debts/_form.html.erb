@@ -11,22 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.number_field :amount %>
+  <div class="field relative mb-4 px-3">
+    <%= form.label :amount, style: "display: block", class: "leading-7 text-xl text-gray-600 font-extrabold" %>
+    <%= form.number_field :amount, class: "w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-0 leading-8 transition-colors duration-200 ease-in-out" %>
   </div>
+  <%= form.number_field :customer_id, value: @customer.id, class: "hidden w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-0 leading-8 transition-colors duration-200 ease-in-out" %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :customer_id, style: "display: block" %>
-    <%= form.text_field :customer_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="absolute bottom-0 bg-[#00e7ff] w-full flex justify-center">
+    <%= form.submit class: "bg-[#00e8ff] mt-4 text-white font-bold py-2 rounded flex justify-center px-20 border-0" %>
   </div>
 <% end %>

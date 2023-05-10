@@ -1,9 +1,11 @@
-<h1>New customer</h1>
+<div class="w-[100%] h-[60px] bg-[#00E7FF] flex justify-between items-center text-white">
+  <%=link_to customers_path do%>
+    <i class="fa-sharp fa-solid fa-arrow-left text-white fa-2x"></i>
+  <%end%>
+  <h2 class="m-0 tracking-wide text-2xl">NEW CUSTOMER</h2>
+  <div></div>
+</div>
 
 <%= render "form", customer: @customer %>
 
-<br>
 
-<div>
-  <%= link_to "Back to customers", customers_path %>
-</div>

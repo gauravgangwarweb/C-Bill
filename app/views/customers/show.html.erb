@@ -1,10 +1,38 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @customer %>
+<div class="w-full h-[60px] bg-[#00E7FF] flex justify-between items-center text-white">
+  <%=link_to customers_path do%>
+    <i class="fa-sharp fa-solid fa-arrow-left fa-2x text-white pl-2"></i>
+  <%end%>
+  <h2 class="m-0 tracking-wide text-2xl">Details</h2>
+  <%= button_to destroy_user_session_path, method: :delete, class:"login-button" do %>
+    <i class="fa-solid fa-right-from-bracket fa-2x pr-1" style="color: #ffffff;"></i>
+  <% end %>
+</div>
+<div class="px-2 mt-3">
+<div class="flex box-shadow px-2 py-2 justify-between">
+<img src="<%= @customer.pic %>" style="width: 80px; height: 80px; border-radius: 50%" >
+<div class="flex flex-col">
+<p class="p-0 m-0 text-[20px] font-bold"><%= @customer.name %></p>
+<%= link_to "Edit", edit_customer_path(@customer) %>
+<%= button_to "Delete", @customer, method: :delete, class: "bg-[#00e7ff]" %>
+</div>
+</div>
 
 <div>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
-
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+    <h3 class="text-center text-[30px] font-extrabold">Transactions</h3>
+    <% @debts.each do |debt| %>
+      <div class="flex box-shadow px-3 py-2 justify-between items-center">
+        <p class="text-[20px]">$   <strong><%= debt.amount %></strong></p>
+        <div class="flex justify-center items-center gap-4">
+          <p><%= debt.created_at.strftime('%m/%d/%Y') %></p>
+          <%= button_to debt, method: :delete, class: "border-0 bg-[inherit]" do %>
+          <i class="fa-sharp fa-solid fa-trash fa-2x"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+</div>
+<p style="color: green"><%= notice %></p>
+</div>
+<div class="absolute bottom-0 bg-[#00e7ff] w-full">
+<%= link_to "New Transaction", new_debt_path(:c => @customer.id), class: "bg-[#00e8ff] mt-4 text-white font-bold py-2 rounded flex justify-center px-20" %>
 </div>

@@ -1,3 +1,4 @@
+<div class="w-full mt-4">
 <%= form_with(model: customer) do |form| %>
   <% if customer.errors.any? %>
     <div style="color: red">
@@ -11,22 +12,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field relative mb-4 px-3">
+    <%= form.label :name, style: "display: block", class: "leading-7 text-xl text-gray-600 font-extrabold" %>
+    <%= form.text_field :name, class: "w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-0 leading-8 transition-colors duration-200 ease-in-out" %>
   </div>
 
-  <div>
-    <%= form.label :pic, style: "display: block" %>
-    <%= form.text_field :pic %>
+  <div class="field relative mb-4 px-3">
+    <%= form.label :pic, style: "display: block", class: "leading-7 text-xl text-gray-600 font-extrabold" %>
+    <%= form.text_field :pic, class: "w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-0 leading-8 transition-colors duration-200 ease-in-out" %>
   </div>
 
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+  <div class="field relative mb-4 px-3">
+    <%= form.label :address, style: "display: block", class: "leading-7 text-xl text-gray-600 font-extrabold" %>
+    <%= form.text_field :address, class: "w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-0 leading-8 transition-colors duration-200 ease-in-out" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="absolute bottom-0 bg-[#00e7ff] w-full flex justify-center">
+    <%= form.submit class: "bg-[#00e8ff] mt-4 text-white font-bold py-2 rounded flex justify-center px-20 border-0" %>
   </div>
 <% end %>
+</div>
